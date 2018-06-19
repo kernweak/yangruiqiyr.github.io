@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>程序二进制特征</title>
+      <link href="/2018/06/20/%E7%A8%8B%E5%BA%8F%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E5%BE%81/"/>
+      <url>/2018/06/20/%E7%A8%8B%E5%BA%8F%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E5%BE%81/</url>
+      <content type="html"><![CDATA[<h1 id="常用程序的特征"><a href="#常用程序的特征" class="headerlink" title="常用程序的特征"></a>常用程序的特征</h1><h2 id="1-BC"><a href="#1-BC" class="headerlink" title="1.BC++"></a>1.BC++</h2><h2 id="2Delphi"><a href="#2Delphi" class="headerlink" title="2Delphi"></a>2Delphi</h2><h2 id="3易语言"><a href="#3易语言" class="headerlink" title="3易语言"></a>3易语言</h2><h2 id="4VB"><a href="#4VB" class="headerlink" title="4VB"></a>4VB</h2><h2 id="3VC"><a href="#3VC" class="headerlink" title="3VC++"></a>3VC++</h2><h1 id="分析BC-程序特征"><a href="#分析BC-程序特征" class="headerlink" title="分析BC++程序特征"></a>分析BC++程序特征</h1><p>OPE特征    EB 10  Fb c++hook<br>二进制特征：EB 10 66 62 3A 43 2B 2B 48 4F 4F 4B 90</p><p>第一个CALL内有API调用 GetMouduleHandleA</p><h1 id="分析Delphi程序特征"><a href="#分析Delphi程序特征" class="headerlink" title="分析Delphi程序特征"></a>分析Delphi程序特征</h1><p>OPE特征  5个Call ，上面全是地址，后面全是0，第一个CALL内有API调用 GetMouduleHandleA</p><p>调用函数时，跳转IAT时OPCODE跳转是FF25，VC是FF15</p><p>区段名比较细致</p><p>CODE，DATA，BSS（），idata，tls，rdata，reloc，rsrc</p><p>链接器版本<br>2.25</p><h1 id="分析VS程序"><a href="#分析VS程序" class="headerlink" title="分析VS程序"></a>分析VS程序</h1><p>VC6.0  6.0<br>VC2003 7.0 7.1<br>VC2005 8.0<br>VC2008   9.0<br>VS2010   10<br>VS2012   11<br>VS2015   14.0<br>VS2017  14.1  </p><h1 id="分析VC6-0和易语言程序特征"><a href="#分析VC6-0和易语言程序特征" class="headerlink" title="分析VC6.0和易语言程序特征"></a>分析VC6.0和易语言程序特征</h1><p>这两个编译器一样，链接器都是6.0版本，第一个api调用getversion，<br>Sub esp，0x58</p><h1 id="逆向步骤"><a href="#逆向步骤" class="headerlink" title="逆向步骤"></a>逆向步骤</h1><p>拿到程序  </p><h2 id="1-确定格式和加密"><a href="#1-确定格式和加密" class="headerlink" title="1.确定格式和加密"></a>1.确定格式和加密</h2><h2 id="2-根据分析，选择工具全面静态分析"><a href="#2-根据分析，选择工具全面静态分析" class="headerlink" title="2.根据分析，选择工具全面静态分析"></a>2.根据分析，选择工具全面静态分析</h2><p>1.查看链接器版本（4.20-VB5，2.25-Delphi7）<br>2.查看OEP代码，是否加壳，未加壳的编译器环境（代码是否正常，pushad这类不正常）<br>3.查看区段（.text 微软 CODE 宝蓝）<br>4.查看导入导出 表（函数名）<br>5.查看资源信息（有无自定义资源）<br>6.查看TLS信息息（有无设置TLS回调函数）<br>7.文件大小，图标  </p><h2 id="3-使用完PE工具，在使用其他工具进行分析"><a href="#3-使用完PE工具，在使用其他工具进行分析" class="headerlink" title="3.使用完PE工具，在使用其他工具进行分析"></a>3.使用完PE工具，在使用其他工具进行分析</h2><p>1.如果加壳，就脱壳，如果是强壳还是需要脱壳才能分析，那就先找OEP再转存到文件，结合IDA进行分析。<br>2.若果程序为保护，看引用了API之类的，根据API确定实现的功能，比如文件操作，网络操作，注册表操作。用监控类工具分析，分析日志，，再进行下一步分析，如果需要分析网络数据可以使用抓包工具。<br>3.如果其他的文件，如资源文件，分析字符串推测功能<br>4.如果程序有安装目录，目录每个文件子目录都要查看  </p><h2 id="4-根据静态分析情况，再动态分析"><a href="#4-根据静态分析情况，再动态分析" class="headerlink" title="4.根据静态分析情况，再动态分析"></a>4.根据静态分析情况，再动态分析</h2><p>第一种，单步跟踪调试，就是从程序加载开始跟踪，一直到找到需要的信息。<br>第二种，附加调试程序，这是在程序运行的状态下，附加进程，进行分析，一般在API下断，然后栈回溯进行分析，还有一种就是如果是窗口程序，我们可以通过窗口回调函数然后进行分析。  </p><h2 id="5-动静结合"><a href="#5-动静结合" class="headerlink" title="5.动静结合"></a>5.动静结合</h2><p>OD，IDA<br>如果分析中还是有很多困难，那么就需要使用IDA/OD等工具进行进一步的分析，尤其是字符串。<br>根据字符串，下断栈回溯分析。  </p><h2 id="6-使用源码对比法，辅助逆向"><a href="#6-使用源码对比法，辅助逆向" class="headerlink" title="6.使用源码对比法，辅助逆向"></a>6.使用源码对比法，辅助逆向</h2><p>分析程序，用了什么库，写代码demo反汇编我们的程序进行对比，提高逆向效率  </p>]]></content>
+      
+      <categories>
+          
+          <category> 软件逆向 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向 </tag>
+            
+            <tag> 反汇编 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2018/06/20/hello-world/"/>
       <url>/2018/06/20/hello-world/</url>
