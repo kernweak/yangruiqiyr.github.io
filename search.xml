@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>MarkDown用法之表格单元格合并</title>
+      <link href="/2018/06/21/MarkDown%E7%94%A8%E6%B3%95%E4%B9%8B%E8%A1%A8%E6%A0%BC%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
+      <url>/2018/06/21/MarkDown%E7%94%A8%E6%B3%95%E4%B9%8B%E8%A1%A8%E6%A0%BC%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6/</url>
+      <content type="html"><![CDATA[<p>Markdown语法本身不包含复杂表格的插入，但是可以使用html语法来实现。</p><p>水平单元格的合并：基于colspan属性，即使一个单元格占多列的空间<br>纵向单元格的合并：基于rowspan属性，即使一个单元格占多行的空间<br>要想MarkDown中插入复杂表格时，可以先在word或excel中把表格写好，然后在如下网站进行转化为标记对形式：</p><p><a href="http://pressbin.com/tools/excel_to_html_table/index.html" target="_blank" rel="noopener">http://pressbin.com/tools/excel_to_html_table/index.html</a></p><p>然后删除空标记对，并设置colspan和rowspan属性即可。<br>比如  <code>&lt;td colspan=&quot;8&quot;&gt;基地址Base31到24&lt;/td&gt;</code>就是合并8列单元格</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MarkDown </tag>
+            
+            <tag> 文本编辑 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>程序二进制特征</title>
       <link href="/2018/06/20/%E7%A8%8B%E5%BA%8F%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E5%BE%81/"/>
       <url>/2018/06/20/%E7%A8%8B%E5%BA%8F%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E5%BE%81/</url>
