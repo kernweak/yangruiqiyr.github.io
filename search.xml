@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Inline_Hook</title>
+      <link href="/2018/07/02/Inline-Hook/"/>
+      <url>/2018/07/02/Inline-Hook/</url>
+      <content type="html"><![CDATA[<h1 id="Inline-Hook"><a href="#Inline-Hook" class="headerlink" title="Inline Hook"></a>Inline Hook</h1><p>jmp 到没用的地方<br>pushad,pushfd,<br>做自己的事<br>popfd,popad.<br>加上被覆盖的代码<br>jmp 到被覆盖代码的下一行   </p><h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>位置的选择：</p><p><1> JMP/CALL指令至少占用5个字节</1></p><p><2> 绕开全局变量，因为全局变量的硬编码会随着指令变</2></p><p><3> 根据业务来决定在哪里HOOK：过滤参数？修改返回结果？</3></p><p>inline hook本质是改硬编码，改成<br>E9 +Code<br>Code = 要跳转的地址 - 补丁地址 - 5</p><p>比如从4183D7调到418221code就是285，采用小端存储就是<br>85 02 00 00</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 - Hook笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Inline—Hook </tag>
+            
+            <tag> 内核学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>驱动学习笔记下</title>
       <link href="/2018/07/02/%E9%A9%B1%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8B/"/>
       <url>/2018/07/02/%E9%A9%B1%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8B/</url>
@@ -63,9 +86,9 @@
       
         <tags>
             
-            <tag> SSDT—Hook </tag>
-            
             <tag> 内核学习 </tag>
+            
+            <tag> SSDT—Hook </tag>
             
         </tags>
       
