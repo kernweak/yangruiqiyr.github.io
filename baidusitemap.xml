@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/02/Inline-Hook/</loc>
+    <lastmod>2018-07-02T10:55:07.082Z</lastmod>
+    <data>
+        <display>
+        <title>Inline_Hook</title>
+        <pubTime>2018-07-02T10:54:09.000Z</pubTime>
+        
+        <tag>Inline—Hook</tag>
+         
+        <tag>内核学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - Hook笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-Hook%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/02/%E9%A9%B1%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8B/</loc>
+    <lastmod>2018-07-02T10:50:35.963Z</lastmod>
+    <data>
+        <display>
+        <title>驱动学习笔记下</title>
+        <pubTime>2018-07-02T10:49:28.000Z</pubTime>
+        
+        <tag>驱动</tag>
+         
+        <tag>内核重载</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 驱动笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E9%A9%B1%E5%8A%A8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/02/%E9%A9%B1%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%8A/</loc>
+    <lastmod>2018-07-02T10:47:58.257Z</lastmod>
+    <data>
+        <display>
+        <title>驱动学习笔记上</title>
+        <pubTime>2018-07-02T10:45:44.000Z</pubTime>
+        
+        <tag>驱动</tag>
+         
+        <tag>MDL</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 驱动笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E9%A9%B1%E5%8A%A8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/07/01/SSDT-Hook%E5%92%8CMDL/</loc>
+    <lastmod>2018-07-01T13:30:41.085Z</lastmod>
+    <data>
+        <display>
+        <title>SSDT—Hook和MDL</title>
+        <pubTime>2018-07-01T13:24:15.000Z</pubTime>
+        
+        <tag>内核学习</tag>
+         
+        <tag>SSDT—Hook</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - Hook笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-Hook%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/30/%E9%80%9A%E8%BF%87%E8%BF%9B%E7%A8%8B%E6%8C%82%E9%9D%A0%E5%AE%9E%E7%8E%B0%E6%94%B9%E5%85%B6%E5%AE%83%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2018-06-30T01:47:52.988Z</lastmod>
+    <data>
+        <display>
+        <title>通过进程挂靠实现改其它进程的数据</title>
+        <pubTime>2018-06-30T01:46:44.000Z</pubTime>
+        
+        <tag>内核学习</tag>
+         
+        <tag>进次挂靠</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 驱动学习编辑" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E9%A9%B1%E5%8A%A8%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%BE%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/30/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%AC%94%E8%AE%B0%E4%B8%8B/</loc>
+    <lastmod>2018-06-30T01:44:31.006Z</lastmod>
+    <data>
+        <display>
+        <title>系统调用笔记下</title>
+        <pubTime>2018-06-30T01:43:59.000Z</pubTime>
+        
+        <tag>系统调用</tag>
+         
+        <tag>驱动学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 系统调用笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/30/%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%AC%94%E8%AE%B0%E4%B8%8A/</loc>
+    <lastmod>2018-06-30T01:38:36.169Z</lastmod>
+    <data>
+        <display>
+        <title>系统调用笔记上</title>
+        <pubTime>2018-06-30T01:26:48.000Z</pubTime>
+        
+        <tag>系统调用</tag>
+         
+        <tag>驱动学习</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 系统调用笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/25/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E4%B9%8B%E9%A1%B5%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-06-28T03:19:57.341Z</lastmod>
+    <data>
+        <display>
+        <title>保护模式之页相关的笔记</title>
+        <pubTime>2018-06-25T01:29:00.000Z</pubTime>
+        
+        <tag>保护模式</tag>
+         
+        <tag>保护模式页</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 内核笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E5%86%85%E6%A0%B8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/28/object-Hook%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2018-06-28T03:18:38.636Z</lastmod>
+    <data>
+        <display>
+        <title>object_Hook相关知识</title>
+        <pubTime>2018-06-28T03:06:41.000Z</pubTime>
+        
+        <tag>内核学习</tag>
+         
+        <tag>Object—Hook</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - Hook笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-Hook%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/23/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%AE%B5%E7%9B%B8%E5%85%B3%E7%9A%84%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-06-23T00:17:14.453Z</lastmod>
+    <data>
+        <display>
+        <title>保护模式之段相关的笔记</title>
+        <pubTime>2018-06-23T00:14:28.000Z</pubTime>
+        
+        <tag>保护模式段</tag>
+         
+        <tag>保护模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 内核笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E5%86%85%E6%A0%B8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/22/%E6%AE%B5%E4%BD%BF%E7%94%A8%E6%97%B6%E7%9B%B8%E5%85%B3%E7%9A%84%E6%A3%80%E6%9F%A5%E4%B8%8E%E8%B0%83%E7%94%A8%E9%97%A8%E5%AE%9E%E9%AA%8C/</loc>
+    <lastmod>2018-06-22T02:48:22.490Z</lastmod>
+    <data>
+        <display>
+        <title>段使用时相关的检查与调用门实验</title>
+        <pubTime>2018-06-22T00:52:17.000Z</pubTime>
+        
+        <tag>保护模式</tag>
+         
+        <tag>调用门</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 内核笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E5%86%85%E6%A0%B8%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/21/%E6%AE%B5%E6%8F%8F%E8%BF%B0%E7%AC%A6%E6%B5%85%E8%B0%88/</loc>
+    <lastmod>2018-06-21T07:04:34.880Z</lastmod>
+    <data>
+        <display>
+        <title>段描述符浅谈</title>
+        <pubTime>2018-06-21T03:12:40.000Z</pubTime>
+        
+        <tag>保护模式</tag>
+         
+        <tag>内核</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/20/%E7%A8%8B%E5%BA%8F%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E5%BE%81/</loc>
+    <lastmod>2018-06-21T02:21:58.911Z</lastmod>
+    <data>
+        <display>
+        <title>程序二进制特征</title>
+        <pubTime>2018-06-19T17:38:20.000Z</pubTime>
+        
+        <tag>逆向</tag>
+         
+        <tag>反汇编</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/21/MarkDown%E7%94%A8%E6%B3%95%E4%B9%8B%E8%A1%A8%E6%A0%BC%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6/</loc>
+    <lastmod>2018-06-21T02:18:54.706Z</lastmod>
+    <data>
+        <display>
+        <title>MarkDown用法之表格单元格合并</title>
+        <pubTime>2018-06-21T02:16:57.000Z</pubTime>
+        
+        <tag>MarkDown</tag>
+         
+        <tag>文本编辑</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2018/06/20/hello-world/</loc>
+    <lastmod>2018-06-19T16:01:13.670Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2018-06-19T16:01:13.670Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
