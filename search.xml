@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>等待链表_调度链表</title>
+      <link href="/2018/07/05/%E7%AD%89%E5%BE%85%E9%93%BE%E8%A1%A8-%E8%B0%83%E5%BA%A6%E9%93%BE%E8%A1%A8/"/>
+      <url>/2018/07/05/%E7%AD%89%E5%BE%85%E9%93%BE%E8%A1%A8-%E8%B0%83%E5%BA%A6%E9%93%BE%E8%A1%A8/</url>
+      <content type="html"><![CDATA[<p>进程结构体EPROCESS(0x50和0x190)是2个链表，里面圈着当前进程所有的线程。</p><pre><code>对进程断链，程序可以正常运行，原因是CPU执行与调度是基于线程的，进程断链只是影响一些遍历系统进程的API，并不会影响程序执行。对线程断链也是一样的，断链后在Windbg或者OD中无法看到被断掉的线程，但并不影响其执行(仍然再跑)。</code></pre><h1 id="33个链表"><a href="#33个链表" class="headerlink" title="33个链表"></a>33个链表</h1><p>线程有3种状态：就绪、等待、运行</p><p>正在运行中的线程存储在KPCR中，就绪和等待的线程全在另外的33个链表中。<br>一个等待链表，32个就绪链表：</p><p>这些链表都使用了_KTHREAD(0x060)这个位置，也就是说，线程在某一时刻，只能属于其中一个圈。</p><h2 id="等待链表"><a href="#等待链表" class="headerlink" title="等待链表"></a>等待链表</h2><p>kd&gt; dd KiWaitListHead</p><p>比如：线程调用了Sleep() 或者 WaitForSingleObject()等函数时，就挂到这个链表</p><p>(查看等待线程)</p><h2 id="调度链表"><a href="#调度链表" class="headerlink" title="调度链表"></a>调度链表</h2><p>调度链表有32个圈，就是优先级:0 - 31  0最低  31最高  默认优先级一般是8</p><p>改变优先级就是从一个圈里面卸下来挂到另外一个圈上</p><p>这32个圈是正在调度中的线程：包括正在运行的和准备运行的</p><p>比如：只有一个CPU但有10个线程在运行，那么某一时刻，正在运行的线程在KPCR中，其他9个在这32个圈中。</p><h2 id="查看调度链表"><a href="#查看调度链表" class="headerlink" title="查看调度链表"></a>查看调度链表</h2><p>既然有32个链表，就要有32个链表头。</p><p>kd&gt; dd KiDispatcherReadyListHead L70</p><h2 id="版本差异"><a href="#版本差异" class="headerlink" title="版本差异"></a>版本差异</h2><p>XP只有一个33个圈，也就是说上面这个数组只有一个，多核也只有一个.</p><p>Win7也是一样的只有一个圈，如果是64位的，那就有64个圈.</p><p>服务器版本：</p><p>KiWaitListHead整个系统只有一个，但KiDispatcherReadyListHead这个数组有几个CPU就有几组</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1、正在运行的线程在KPCR中</p><p>2、准备运行的线程在32个调度链表中(0 - 31级)，KiDispatcherReadyListHead 是个数组存储了这32个链表头.</p><p>3、等待状态的线程存储在等待链表中，KiWaitListHead存储链表头.</p><p>4、这些圈都挂一个相同的位置：_KTHREAD(0x060)</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[1] 滴水视频</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 - 进程与线程笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 等待链表 </tag>
+            
+            <tag> 调度链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>KPCR</title>
       <link href="/2018/07/05/KPCR/"/>
       <url>/2018/07/05/KPCR/</url>
@@ -314,9 +337,9 @@
       
         <tags>
             
-            <tag> 保护模式页 </tag>
-            
             <tag> 保护模式 </tag>
+            
+            <tag> 保护模式页 </tag>
             
         </tags>
       
@@ -337,9 +360,9 @@
       
         <tags>
             
-            <tag> 保护模式 </tag>
-            
             <tag> 保护模式段 </tag>
+            
+            <tag> 保护模式 </tag>
             
         </tags>
       
