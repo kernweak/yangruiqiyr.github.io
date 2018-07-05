@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>KPCR</title>
+      <link href="/2018/07/05/KPCR/"/>
+      <url>/2018/07/05/KPCR/</url>
+      <content type="html"><![CDATA[<h1 id="KPCR：CPU控制区（Processor-Control-Region）"><a href="#KPCR：CPU控制区（Processor-Control-Region）" class="headerlink" title="KPCR：CPU控制区（Processor Control Region）"></a>KPCR：CPU控制区（Processor Control Region）</h1><h2 id="KPCR介绍"><a href="#KPCR介绍" class="headerlink" title="KPCR介绍"></a>KPCR介绍</h2><p>KPCR相当于一个副本，存储着线程相关的一些重要信息，这样CPU在处理时就不用查线程了。<br>1) 当线程进入0环时，FS:[0]指向KPCR(3环时FS:[0] -&gt; TEB)</p><p>2) 每个CPU都有一个KPCR结构体(一个核一个)</p><p>3) KPCR中存储了CPU本身要用的一些重要数据：GDT、IDT以及线程相关的一些信息。</p><p>(在winbbg中查看KPCR结构体)</p><h2 id="NT-TIB主要成员介绍"><a href="#NT-TIB主要成员介绍" class="headerlink" title="_NT_TIB主要成员介绍"></a>_NT_TIB主要成员介绍</h2><p>1)    +0x000 ExceptionList    : Ptr32_EXCEPTION_REGISTRATION_RECORD<br>           当前线程内核异常链表(SEH)</p><p>2)    +0x004 StackBase        : Ptr32 Void<br>       +0x008 StackLimit       : Ptr32 Void<br>    当前线程内核栈的基址和大小</p><p>3)    +0x018 Self             : Ptr32 _NT_TIB    </p><pre><code>指向自己(也就是指向KPCR结构) 这样设计的目的是为了查找方便</code></pre><h2 id="KPCR的其他成员介绍"><a href="#KPCR的其他成员介绍" class="headerlink" title="KPCR的其他成员介绍"></a>KPCR的其他成员介绍</h2><p>1)    +0x01c SelfPcr          : Ptr32 _KPCR<br>    指向自己，方便寻址</p><p>2)    +0x020 Prcb             : Ptr32 _KPRCB<br>    指向拓展结构体PRCB  </p><p>3)    +0x038 IDT              : Ptr32 _KIDTENTRY<br>    IDT表基址</p><p>4)    +0x03c GDT              : Ptr32 _KGDTENTRY<br>    GDT表基址</p><p>5)    +0x040 TSS              : Ptr32 _KTSS<br>    指针，指向TSS，每个CPU都有一个TSS.都是指向当前线程的</p><p>6)    +0x051 Number           : UChar<br>    CPU编号：0 1 2 3 4 5。。。</p><p>7)    +0x120 PrcbData         : _KPRCB<br>    拓展结构体</p><h2 id="PRCB成员介绍"><a href="#PRCB成员介绍" class="headerlink" title="PRCB成员介绍"></a>PRCB成员介绍</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+0x004 CurrentThread    : Ptr32 _KTHREAD</span><br><span class="line">+0x008 NextThread       : Ptr32 _KTHREAD</span><br><span class="line">+0x00c IdleThread       : Ptr32 _KTHREAD</span><br></pre></td></tr></table></figure><pre><code>当前线程即将切换的下一个线程空闲线程          </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">kd&gt; dt _KPCR</span><br><span class="line">ntdll!_KPCR</span><br><span class="line">   +0x000 NtTib            : _NT_TIB</span><br><span class="line">   +0x000 Used_ExceptionList : Ptr32 _EXCEPTION_REGISTRATION_RECORD</span><br><span class="line">   +0x004 Used_StackBase   : Ptr32 Void</span><br><span class="line">   +0x008 Spare2           : Ptr32 Void</span><br><span class="line">   +0x00c TssCopy          : Ptr32 Void</span><br><span class="line">   +0x010 ContextSwitches  : Uint4B</span><br><span class="line">   +0x014 SetMemberCopy    : Uint4B</span><br><span class="line">   +0x018 Used_Self        : Ptr32 Void</span><br><span class="line">   +0x01c SelfPcr          : Ptr32 _KPCR</span><br><span class="line">   +0x020 Prcb             : Ptr32 _KPRCB</span><br><span class="line">   +0x024 Irql             : UChar</span><br><span class="line">   +0x028 IRR              : Uint4B</span><br><span class="line">   +0x02c IrrActive        : Uint4B</span><br><span class="line">   +0x030 IDR              : Uint4B</span><br><span class="line">   +0x034 KdVersionBlock   : Ptr32 Void</span><br><span class="line">   +0x038 IDT              : Ptr32 _KIDTENTRY</span><br><span class="line">   +0x03c GDT              : Ptr32 _KGDTENTRY</span><br><span class="line">   +0x040 TSS              : Ptr32 _KTSS</span><br><span class="line">   +0x044 MajorVersion     : Uint2B</span><br><span class="line">   +0x046 MinorVersion     : Uint2B</span><br><span class="line">   +0x048 SetMember        : Uint4B</span><br><span class="line">   +0x04c StallScaleFactor : Uint4B</span><br><span class="line">   +0x050 SpareUnused      : UChar</span><br><span class="line">   +0x051 Number           : UChar</span><br><span class="line">   +0x052 Spare0           : UChar</span><br><span class="line">   +0x053 SecondLevelCacheAssociativity : UChar</span><br><span class="line">   +0x054 VdmAlert         : Uint4B</span><br><span class="line">   +0x058 KernelReserved   : [14] Uint4B</span><br><span class="line">   +0x090 SecondLevelCacheSize : Uint4B</span><br><span class="line">   +0x094 HalReserved      : [16] Uint4B</span><br><span class="line">   +0x0d4 InterruptMode    : Uint4B</span><br><span class="line">   +0x0d8 Spare1           : UChar</span><br><span class="line">   +0x0dc KernelReserved2  : [17] Uint4B</span><br><span class="line">   +0x120 PrcbData         : _KPRCB</span><br><span class="line">kd&gt; dt _NT_TIB//3环的TEB也有这个结构体，不过存的是3环的信息</span><br><span class="line">ntdll!_NT_TIB</span><br><span class="line">   +0x000 ExceptionList    : Ptr32 _EXCEPTION_REGISTRATION_RECORD</span><br><span class="line">   +0x004 StackBase        : Ptr32 Void</span><br><span class="line">   +0x008 StackLimit       : Ptr32 Void</span><br><span class="line">   +0x00c SubSystemTib     : Ptr32 Void</span><br><span class="line">   +0x010 FiberData        : Ptr32 Void</span><br><span class="line">   +0x010 Version          : Uint4B</span><br><span class="line">   +0x014 ArbitraryUserPointer : Ptr32 Void</span><br><span class="line">   +0x018 Self             : Ptr32 _NT_TIB</span><br></pre></td></tr></table></figure><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[1] 滴水视频</p>]]></content>
+      
+      <categories>
+          
+          <category> 笔记 - 进程与线程笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> KPCR </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>进程结构体和线程结构体</title>
       <link href="/2018/07/05/%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93/"/>
       <url>/2018/07/05/%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93/</url>
@@ -293,9 +314,9 @@
       
         <tags>
             
-            <tag> 保护模式 </tag>
-            
             <tag> 保护模式页 </tag>
+            
+            <tag> 保护模式 </tag>
             
         </tags>
       
@@ -316,9 +337,9 @@
       
         <tags>
             
-            <tag> 保护模式段 </tag>
-            
             <tag> 保护模式 </tag>
+            
+            <tag> 保护模式段 </tag>
             
         </tags>
       

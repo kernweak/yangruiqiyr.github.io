@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/05/KPCR/</loc>
+    <lastmod>2018-07-05T06:33:14.830Z</lastmod>
+    <data>
+        <display>
+        <title>KPCR</title>
+        <pubTime>2018-07-05T06:32:07.000Z</pubTime>
+        
+        <tag>KPCR</tag>
+         
+         
+           
+             
+              <breadCrumb title="笔记 - 进程与线程笔记" url="http://yoursite.com/categories/%E7%AC%94%E8%AE%B0-%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/05/%E8%BF%9B%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%BB%93%E6%9E%84%E4%BD%93/</loc>
     <lastmod>2018-07-05T06:09:35.185Z</lastmod>
     <data>
@@ -253,9 +273,9 @@
         <title>保护模式之页相关的笔记</title>
         <pubTime>2018-06-25T01:29:00.000Z</pubTime>
         
-        <tag>保护模式</tag>
-         
         <tag>保护模式页</tag>
+         
+        <tag>保护模式</tag>
          
          
            
@@ -297,9 +317,9 @@
         <title>保护模式之段相关的笔记</title>
         <pubTime>2018-06-23T00:14:28.000Z</pubTime>
         
-        <tag>保护模式段</tag>
-         
         <tag>保护模式</tag>
+         
+        <tag>保护模式段</tag>
          
          
            
