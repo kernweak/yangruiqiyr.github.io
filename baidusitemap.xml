@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/07/28/CVE-2012-0158-%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2018-07-27T22:09:43.932Z</lastmod>
+    <data>
+        <display>
+        <title>CVE-2012-0158 漏洞分析</title>
+        <pubTime>2018-07-27T22:08:27.000Z</pubTime>
+        
+        <tag>漏洞分析</tag>
+         
+        <tag>栈溢出</tag>
+         
+         
+           
+             
+              <breadCrumb title="报告 - CVE-2012-0158漏洞分析报告" url="http://yoursite.com/categories/%E6%8A%A5%E5%91%8A-CVE-2012-0158%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/07/16/%E7%86%8A%E7%8C%AB%E7%83%A7%E9%A6%99%E7%97%85%E6%AF%92%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A/</loc>
     <lastmod>2018-07-16T13:26:01.174Z</lastmod>
     <data>
@@ -405,9 +427,9 @@
         <title>保护模式之页相关的笔记</title>
         <pubTime>2018-06-25T01:29:00.000Z</pubTime>
         
-        <tag>保护模式</tag>
-         
         <tag>保护模式页</tag>
+         
+        <tag>保护模式</tag>
          
          
            
@@ -471,9 +493,9 @@
         <title>段使用时相关的检查与调用门实验</title>
         <pubTime>2018-06-22T00:52:17.000Z</pubTime>
         
-        <tag>调用门</tag>
-         
         <tag>保护模式</tag>
+         
+        <tag>调用门</tag>
          
          
            
